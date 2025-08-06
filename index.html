@@ -700,6 +700,39 @@
                 }
             });
         });
+
+                        // 6. Distribución de Edad
+                const ctx6 = document.getElementById('ageChart').getContext('2d');
+                new Chart(ctx6, {
+                  type: 'bar',
+                  data: {
+                    labels: ['< 25', '25-34', '35-44', '45-54', '55+'],
+                    datasets: [{
+                      label: 'Porcentaje (%)',
+                      data: [15, 40, 30, 10, 5],           // reemplaza con tus datos reales
+                      backgroundColor: [
+                        colors.info,
+                        colors.primary,
+                        colors.success,
+                        colors.warning,
+                        colors.secondary
+                      ],
+                      borderRadius: 6
+                    }]
+                  },
+                  options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false } },
+                    scales: {
+                      y: {
+                        title: { display: true, text: 'Porcentaje (%)' },
+                        beginAtZero: true
+                      }
+                    }
+                  }
+                });
+
     </script>
 </body>
 </html>
