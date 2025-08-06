@@ -1,459 +1,678 @@
-<!-- Resumen Ejecutivo -->
-    <div class="highlight-box">
-        <h2 style="color: white; border: none; margin-bottom: 20px;">📋 RESUMEN EJECUTIVO</h2>
-        <p style="font-size: 1.2em; margin-bottom: 20px;">Durante nuestro primer mes de asesoría en marketing digital, hemos logrado resultados destacables en ambas sucursales. <strong>La inversión total de $727,623 CLP</strong> generó <strong>835 conversiones de calidad</strong> entre Google Ads y Meta Ads, demostrando el potencial de crecimiento de ambas ubicaciones.</p>
-    </div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Ceclident - Julio/Agosto 2025</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-    <!-- Stats Grid -->
-    <div class="stats-grid">
-        <div class="stat-card">
-            <div class="stat-number">222</div>
-            <div>📱 Conversaciones WhatsApp</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">613</div>
-            <div>🎯 Conversiones Google Ads</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">495%</div>
-            <div>💰 ROI General</div>
-        </div>
-        <div class="stat-card">
-            <div class="stat-number">$727,623</div>
-            <div>💵 Inversión Total</div>
-        </div>
-    </div>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
 
-    <!-- Gráfico Principal -->
-    <div class="chart-container">
-        <div class="chart-title">📱 Distribución de Conversaciones WhatsApp por Servicio</div>
-        <canvas id="conversacionesPorServicio" width="800" height="400"></canvas>
-    </div>
+        .dashboard {
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
 
-    <!-- Tabla Principal -->
-    <h2>🔥 TOTAL GENERAL: 222 CONVERSACIONES WHATSAPP</h2>
-    <table>
-        <thead>
-            <tr>
-                <th>Servicio</th>
-                <th>La Serena</th>
-                <th>Ovalle</th>
-                <th>Total</th>
-                <th>% del Total</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>🦷 Ortodoncia</td>
-                <td>55</td>
-                <td>37</td>
-                <td><strong>92</strong></td>
-                <td><strong>41.4%</strong></td>
-            </tr>
-            <tr>
-                <td>🦴 Implantes</td>
-                <td>29</td>
-                <td>41</td>
-                <td><strong>70</strong></td>
-                <td><strong>31.5%</strong></td>
-            </tr>
-            <tr>
-                <td>🪥 Limpieza Dental</td>
-                <td>35</td>
-                <td>25</td>
-                <td><strong>60</strong></td>
-                <td><strong>27.1%</strong></td>
-            </tr>
-            <tr style="background: #f0f9ff; font-weight: bold;">
-                <td>📊 TOTALES</td>
-                <td><strong>119</strong></td>
-                <td><strong>103</strong></td>
-                <td><strong>222</strong></td>
-                <td><strong>100%</strong></td>
-            </tr>
-        </tbody>
-    </table>
+        .header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            margin-bottom: 30px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
 
-    <div class="analysis-box">
-        <strong>💬 Análisis de Distribución WhatsApp:</strong> La tabla revela una distribución estratégica equilibrada entre servicios, donde Ortodoncia lidera como esperado (41.4%), seguido por Implantes (31.5%) y Limpieza Dental (27.1%). La diferencia de solo 16 conversaciones entre sucursales demuestra un mercado bien balanceado, aunque La Serena mantiene una ligera ventaja en volumen absoluto.
-    </div>
+        .header h1 {
+            font-size: 2.5em;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 10px;
+        }
 
-    <!-- Gráfico de Inversión -->
-    <div class="chart-container">
-        <div class="chart-title">💰 Inversión vs Costo por Conversación</div>
-        <canvas id="inversionPorServicio" width="800" height="400"></canvas>
-    </div>
+        .header .subtitle {
+            font-size: 1.2em;
+            color: #666;
+            margin-bottom: 10px;
+        }
 
-    <!-- Tabla de Inversión -->
-    <h3>💰 Inversión y Eficiencia por Servicio:</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Servicio</th>
-                <th>Inversión</th>
-                <th>Costo/Conversación</th>
-                <th>Evaluación</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>🦷 Ortodoncia</td>
-                <td>$147,113 CLP</td>
-                <td>$1,599 CLP</td>
-                <td>✅ Balanceado</td>
-            </tr>
-            <tr>
-                <td>🦴 Implantes</td>
-                <td>$80,467 CLP</td>
-                <td>$1,150 CLP</td>
-                <td>🏆 Mejor ROI</td>
-            </tr>
-            <tr>
-                <td>🪥 Limpieza Dental</td>
-                <td>$85,755 CLP</td>
-                <td>$1,429 CLP</td>
-                <td>✅ Eficiente</td>
-            </tr>
-        </tbody>
-    </table>
+        .header .period {
+            font-size: 1em;
+            color: #059669;
+            font-weight: bold;
+        }
 
-    <div class="analysis-box">
-        <strong>💡 Análisis de Rentabilidad:</strong> Los implantes emergen como el servicio más rentable con el menor costo por conversación ($1,150), a pesar de requerir menor inversión total. Ortodoncia, aunque requiere mayor inversión, mantiene un costo balanceado, mientras que Limpieza Dental presenta una eficiencia intermedia sólida.
-    </div>
+        .kpi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
 
-    <!-- Gráfico de Género -->
-    <div class="chart-container">
-        <div class="chart-title">👥 Distribución por Género - Conversaciones WhatsApp</div>
-        <canvas id="distribucionGenero" width="600" height="300"></canvas>
-    </div>
+        .kpi-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
 
-    <div class="analysis-box">
-        <strong>👥 Perfil del Paciente Digital:</strong> La predominancia femenina (65.7%) es consistente con estudios de comportamiento en salud dental, donde las mujeres muestran mayor proactividad en cuidados preventivos y estéticos. Este insight es crucial para la segmentación de audiencias futuras.
-    </div>
+        .kpi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
 
-    <!-- Google Ads La Serena -->
-    <h2>🎯 GOOGLE ADS - ANÁLISIS DETALLADO POR SUCURSAL</h2>
-    
-    <h3>📍 SUCURSAL LA SERENA</h3>
-    <table>
-        <thead>
-            <tr>
-                <th>Métrica Principal</th>
-                <th>Resultado</th>
-                <th>Evaluación</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>💰 Inversión Total</td>
-                <td>$63,187 CLP</td>
-                <td>✅ Eficiente</td>
-            </tr>
-            <tr>
-                <td>👆 Clics Generados</td>
-                <td>574</td>
-                <td>🔥 Excelente volumen</td>
-            </tr>
-            <tr>
-                <td>📈 CTR</td>
-                <td><strong>10.74%</strong></td>
-                <td>🏆 Sobresaliente</td>
-            </tr>
-            <tr>
-                <td>🎯 Conversiones</td>
-                <td><strong>406</strong></td>
-                <td>🔥 Excepcional</td>
-            </tr>
-            <tr>
-                <td>💎 Costo/Conversión</td>
-                <td><strong>$156 CLP</strong></td>
-                <td>🏆 Extraordinario</td>
-            </tr>
-        </tbody>
-    </table>
+        .kpi-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+        }
 
-    <div class="chart-container">
-        <div class="chart-title">🏙️ Radar de Rendimiento - La Serena</div>
-        <canvas id="radarLaSerena" width="600" height="400"></canvas>
-    </div>
+        .kpi-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
 
-    <!-- Comparativa Final -->
-    <h2>📊 ANÁLISIS DE RENTABILIDAD Y ROI</h2>
-    <div class="chart-container">
-        <div class="chart-title">📊 ROI por Canal de Marketing</div>
-        <canvas id="roiComparativo" width="800" height="400"></canvas>
-    </div>
+        .kpi-icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5em;
+            color: white;
+        }
 
-    <table>
-        <thead>
-            <tr>
-                <th>Canal</th>
-                <th>Conversiones</th>
-                <th>Valor Generado</th>
-                <th>Inversión</th>
-                <th>ROI</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>Google Ads Total</td>
-                <td>613</td>
-                <td>$12,260,000</td>
-                <td>$114,288</td>
-                <td><strong>1,073%</strong></td>
-            </tr>
-            <tr>
-                <td>Meta Ads Total</td>
-                <td>222 conv. WhatsApp</td>
-                <td>$4,440,000</td>
-                <td>$313,335</td>
-                <td><strong>418%</strong></td>
-            </tr>
-            <tr style="background: #f0f9ff; font-weight: bold;">
-                <td>TOTAL GENERAL</td>
-                <td>835</td>
-                <td>$16,700,000</td>
-                <td>$427,623</td>
-                <td><strong>590%</strong></td>
-            </tr>
-        </tbody>
-    </table>
+        .kpi-icon.whatsapp { background: linear-gradient(135deg, #25D366, #128C7E); }
+        .kpi-icon.google { background: linear-gradient(135deg, #4285F4, #34A853); }
+        .kpi-icon.roi { background: linear-gradient(135deg, #FF6B6B, #EE5A52); }
+        .kpi-icon.value { background: linear-gradient(135deg, #4ECDC4, #44A08D); }
 
-    <!-- Proyección -->
-    <div class="chart-container">
-        <div class="chart-title">🚀 Proyección de Crecimiento Trimestral</div>
-        <canvas id="proyeccionCrecimiento" width="800" height="400"></canvas>
-    </div>
+        .kpi-value {
+            font-size: 2.2em;
+            font-weight: bold;
+            color: #1a202c;
+            margin-bottom: 5px;
+        }
 
-    <!-- Recomendaciones -->
-    <div class="recommendation-card">
-        <h2 style="color: #d97706; border: none;">💼 RECOMENDACIÓN EJECUTIVA PRINCIPAL</h2>
-        <p><strong>Incrementar inversión mensual en 14% ($59K adicionales)</strong> para capturar las oportunidades identificadas. Esta inversión tiene el potencial de generar <strong>+515 conversiones adicionales por mes</strong>, representando un valor estimado de <strong>$10.3 millones CLP</strong> en nuevos pacientes.</p>
-    </div>
+        .kpi-label {
+            color: #666;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
 
-    <!-- Mensaje Final -->
-    <div class="highlight-box">
-        <h2 style="color: white; border: none;">🎯 MENSAJE CLAVE</h2>
-        <p style="font-size: 1.1em;">Primer mes exitoso con resultados sólidos y eficientes. La implementación de las recomendaciones puede <strong>incrementar los resultados en 69%</strong> manteniendo la excelente eficiencia demostrada.</p>
-    </div>
+        .chart-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
 
-    <!-- Footer -->
-    <div class="footer">
-        <p><strong>📋 Informe preparado por BH Consultores</strong> | Especialistas en Marketing Digital Dental</p>
-        <p>📧 contacto@bhconsultores.cl | 🏥 Cliente: Ceclident | 📅 Período: 10 Jul - 5 Ago 2025</p>
-    </div>
-</div>
+        .chart-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
 
-<script>
-    // Configuración de gráficos
-    document.addEventListener('DOMContentLoaded', function() {
-        
-        // Gráfico 1: Conversaciones por Servicio
-        const ctx1 = document.getElementById('conversacionesPorServicio').getContext('2d');
-        new Chart(ctx1, {
-            type: 'doughnut',
-            data: {
-                labels: ['🦷 Ortodoncia (41.4%)', '🦴 Implantes (31.5%)', '🪥 Limpieza (27.1%)'],
-                datasets: [{
-                    data: [92, 70, 60],
-                    backgroundColor: ['#3B82F6', '#10B981', '#F59E0B'],
-                    borderWidth: 4,
-                    borderColor: '#fff'
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { 
-                        position: 'bottom',
-                        labels: { font: { size: 14 }}
-                    }
-                }
+        .chart-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: #1a202c;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .chart-container {
+            position: relative;
+            height: 300px;
+        }
+
+        .full-width-chart {
+            grid-column: 1 / -1;
+        }
+
+        .full-width-chart .chart-container {
+            height: 400px;
+        }
+
+        .table-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            margin-bottom: 30px;
+            overflow-x: auto;
+        }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 15px;
+        }
+
+        .data-table th,
+        .data-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .data-table th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 0.9em;
+        }
+
+        .data-table tr:hover {
+            background: rgba(102, 126, 234, 0.05);
+        }
+
+        .highlight-row {
+            background: rgba(102, 126, 234, 0.1);
+            font-weight: bold;
+        }
+
+        .insights-card {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.3);
+        }
+
+        .insights-title {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .recommendations {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .recommendation-card {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border-left: 5px solid #059669;
+        }
+
+        .footer {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            margin-top: 30px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .percentage-bar {
+            width: 100%;
+            height: 8px;
+            background: #e5e7eb;
+            border-radius: 4px;
+            margin: 10px 0;
+            overflow: hidden;
+        }
+
+        .percentage-fill {
+            height: 100%;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 4px;
+            transition: width 0.8s ease;
+        }
+
+        @media (max-width: 768px) {
+            .dashboard {
+                padding: 10px;
             }
-        });
+            
+            .kpi-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .chart-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard">
+        <!-- Header -->
+        <div class="header">
+            <h1><i class="fas fa-chart-line"></i> Dashboard Marketing Digital</h1>
+            <div class="subtitle">CECLIDENT - Reporte Mensual</div>
+            <div class="period">📅 Período: 10 Julio - 5 Agosto 2025 | 🏢 BH Consultores</div>
+        </div>
 
-        // Gráfico 2: Inversión por Servicio
-        const ctx2 = document.getElementById('inversionPorServicio').getContext('2d');
-        new Chart(ctx2, {
-            type: 'bar',
-            data: {
-                labels: ['Ortodoncia', 'Implantes', 'Limpieza'],
-                datasets: [{
-                    label: 'Inversión (Miles CLP)',
-                    data: [147.113, 80.467, 85.755],
-                    backgroundColor: ['#3B82F6', '#10B981', '#F59E0B'],
-                    borderRadius: 8,
-                    borderWidth: 2,
-                    borderColor: ['#1D4ED8', '#059669', '#D97706']
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { display: false }
+        <!-- KPIs principales -->
+        <div class="kpi-grid">
+            <div class="kpi-card">
+                <div class="kpi-header">
+                    <div>
+                        <div class="kpi-value">236</div>
+                        <div class="kpi-label">Conversaciones WhatsApp</div>
+                    </div>
+                    <div class="kpi-icon whatsapp">
+                        <i class="fab fa-whatsapp"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-header">
+                    <div>
+                        <div class="kpi-value">613</div>
+                        <div class="kpi-label">Conversiones Google Ads</div>
+                    </div>
+                    <div class="kpi-icon google">
+                        <i class="fab fa-google"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-header">
+                    <div>
+                        <div class="kpi-value">582%</div>
+                        <div class="kpi-label">ROI General</div>
+                    </div>
+                    <div class="kpi-icon roi">
+                        <i class="fas fa-chart-pie"></i>
+                    </div>
+                </div>
+            </div>
+
+            <div class="kpi-card">
+                <div class="kpi-header">
+                    <div>
+                        <div class="kpi-value">$16.98M</div>
+                        <div class="kpi-label">Valor Generado CLP</div>
+                    </div>
+                    <div class="kpi-icon value">
+                        <i class="fas fa-dollar-sign"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Gráficos principales -->
+        <div class="chart-grid">
+            <div class="chart-card">
+                <div class="chart-title">
+                    <i class="fas fa-comments"></i>
+                    Conversaciones WhatsApp por Servicio
+                </div>
+                <div class="chart-container">
+                    <canvas id="serviceChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <div class="chart-title">
+                    <i class="fas fa-map-marker-alt"></i>
+                    Comparativa por Sucursal
+                </div>
+                <div class="chart-container">
+                    <canvas id="branchChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <div class="chart-title">
+                    <i class="fas fa-users"></i>
+                    Distribución Demográfica
+                </div>
+                <div class="chart-container">
+                    <canvas id="demographicChart"></canvas>
+                </div>
+            </div>
+
+            <div class="chart-card">
+                <div class="chart-title">
+                    <i class="fas fa-chart-bar"></i>
+                    ROI por Canal
+                </div>
+                <div class="chart-container">
+                    <canvas id="roiChart"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tabla de resultados -->
+        <div class="table-card">
+            <div class="chart-title">
+                <i class="fas fa-table"></i>
+                Resumen por Servicio y Sucursal
+            </div>
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Servicio</th>
+                        <th>La Serena</th>
+                        <th>Ovalle</th>
+                        <th>Total</th>
+                        <th>% del Total</th>
+                        <th>Costo/Conv.</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>🦷 Ortodoncia</td>
+                        <td>55</td>
+                        <td>37</td>
+                        <td><strong>92</strong></td>
+                        <td>42.8%</td>
+                        <td>$1,567</td>
+                    </tr>
+                    <tr>
+                        <td>🦴 Implantes</td>
+                        <td>29</td>
+                        <td>41</td>
+                        <td><strong>70</strong></td>
+                        <td>30.9%</td>
+                        <td>$1,157</td>
+                    </tr>
+                    <tr>
+                        <td>🪥 Limpieza Dental</td>
+                        <td>35</td>
+                        <td>25</td>
+                        <td><strong>60</strong></td>
+                        <td>26.3%</td>
+                        <td>$1,455</td>
+                    </tr>
+                    <tr class="highlight-row">
+                        <td><strong>📊 TOTALES</strong></td>
+                        <td><strong>119</strong></td>
+                        <td><strong>103</strong></td>
+                        <td><strong>222</strong></td>
+                        <td><strong>100%</strong></td>
+                        <td><strong>$1,397</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Proyección de crecimiento -->
+        <div class="chart-card full-width-chart">
+            <div class="chart-title">
+                <i class="fas fa-rocket"></i>
+                Proyección de Crecimiento Trimestral
+            </div>
+            <div class="chart-container">
+                <canvas id="projectionChart"></canvas>
+            </div>
+        </div>
+
+        <!-- Insights principales -->
+        <div class="insights-card">
+            <div class="insights-title">
+                <i class="fas fa-lightbulb"></i>
+                Insights Principales
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                <div>
+                    <h4>🏆 Mayor Eficiencia</h4>
+                    <p>La Serena lidera en conversiones (127 vs 109) pero Ovalle es 22% más eficiente en costo.</p>
+                </div>
+                <div>
+                    <h4>🎯 Especialización</h4>
+                    <p>Ovalle domina en implantes (58.6% del total), La Serena en ortodoncia y limpieza.</p>
+                </div>
+                <div>
+                    <h4>📱 Comportamiento</h4>
+                    <p>66% mujeres, 80% móvil. Horario pico: 18:00-22:00 hrs.</p>
+                </div>
+                <div>
+                    <h4>💰 Oportunidad</h4>
+                    <p>50% impresiones perdidas por presupuesto = potencial de duplicar resultados.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recomendaciones -->
+        <div class="recommendations">
+            <div class="recommendation-card">
+                <h3><i class="fas fa-arrow-up"></i> Incrementar Presupuesto</h3>
+                <p>Aumentar inversión en 14% para capturar oportunidades perdidas. ROI proyectado: +75%</p>
+                <div class="percentage-bar">
+                    <div class="percentage-fill" style="width: 75%"></div>
+                </div>
+            </div>
+
+            <div class="recommendation-card">
+                <h3><i class="fas fa-expand-arrows-alt"></i> Expandir Ovalle</h3>
+                <p>Ampliar de 9 a 25 palabras clave en Ovalle para aprovechar su mayor eficiencia.</p>
+                <div class="percentage-bar">
+                    <div class="percentage-fill" style="width: 60%"></div>
+                </div>
+            </div>
+
+            <div class="recommendation-card">
+                <h3><i class="fas fa-mobile-alt"></i> Optimizar Móvil</h3>
+                <p>80% del tráfico es móvil. Priorizar experiencia mobile-first en todas las campañas.</p>
+                <div class="percentage-bar">
+                    <div class="percentage-fill" style="width: 85%"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer">
+            <h3>📋 BH Consultores | Marketing Digital Especializado</h3>
+            <p>📧 contacto@bhconsultores.cl | 🏥 Cliente: Ceclident | 📅 Primer Mes Asesoría 2025</p>
+            <div style="margin-top: 15px; color: #666;">
+                <small>Dashboard generado automáticamente • Datos actualizados al 5 de Agosto 2025</small>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Configuración global de Chart.js
+        Chart.defaults.font.family = "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
+        Chart.defaults.plugins.legend.labels.usePointStyle = true;
+
+        document.addEventListener('DOMContentLoaded', function() {
+            // Colores del tema
+            const colors = {
+                primary: '#667eea',
+                secondary: '#764ba2',
+                success: '#059669',
+                warning: '#f59e0b',
+                info: '#3b82f6',
+                whatsapp: '#25D366',
+                google: '#4285F4'
+            };
+
+            // 1. Gráfico de servicios
+            const ctx1 = document.getElementById('serviceChart').getContext('2d');
+            new Chart(ctx1, {
+                type: 'doughnut',
+                data: {
+                    labels: ['🦷 Ortodoncia (42.8%)', '🦴 Implantes (30.9%)', '🪥 Limpieza (26.3%)'],
+                    datasets: [{
+                        data: [92, 70, 60],
+                        backgroundColor: [colors.primary, colors.success, colors.warning],
+                        borderWidth: 4,
+                        borderColor: '#fff'
+                    }]
                 },
-                scales: {
-                    y: { 
-                        beginAtZero: true,
-                        title: { 
-                            display: true, 
-                            text: 'Inversión (Miles CLP)',
-                            font: { size: 14 }
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: {
+                            position: 'bottom',
+                            labels: { padding: 20, font: { size: 12 } }
                         }
                     }
                 }
-            }
-        });
+            });
 
-        // Gráfico 3: Distribución por Género
-        const ctx3 = document.getElementById('distribucionGenero').getContext('2d');
-        new Chart(ctx3, {
-            type: 'pie',
-            data: {
-                labels: ['👩 Mujeres (65.7%)', '👨 Hombres (34.3%)'],
-                datasets: [{
-                    data: [146, 76],
-                    backgroundColor: ['#EC4899', '#3B82F6'],
-                    borderWidth: 4,
-                    borderColor: '#fff'
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { 
-                        position: 'bottom',
-                        labels: { font: { size: 14 }}
+            // 2. Comparativa sucursales
+            const ctx2 = document.getElementById('branchChart').getContext('2d');
+            new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                    labels: ['La Serena', 'Ovalle'],
+                    datasets: [{
+                        label: 'Conversaciones WhatsApp',
+                        data: [127, 109],
+                        backgroundColor: [colors.primary, colors.success],
+                        borderRadius: 8
+                    }, {
+                        label: 'ROI (%)',
+                        data: [642, 405],
+                        backgroundColor: [colors.secondary, colors.warning],
+                        borderRadius: 8,
+                        yAxisID: 'y1'
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { title: { display: true, text: 'Conversaciones' }},
+                        y1: { type: 'linear', display: true, position: 'right', title: { display: true, text: 'ROI (%)' }}
                     }
                 }
-            }
-        });
+            });
 
-        // Gráfico 4: Radar La Serena
-        const ctx4 = document.getElementById('radarLaSerena').getContext('2d');
-        new Chart(ctx4, {
-            type: 'radar',
-            data: {
-                labels: ['CTR', 'Conversiones', 'Eficiencia', 'Volumen', 'ROI'],
-                datasets: [{
-                    label: 'La Serena',
-                    data: [95, 90, 88, 95, 92],
-                    borderColor: '#3B82F6',
-                    backgroundColor: 'rgba(59, 130, 246, 0.2)',
-                    pointBackgroundColor: '#3B82F6',
-                    pointBorderColor: '#fff',
-                    pointBorderWidth: 3,
-                    pointRadius: 6,
-                    borderWidth: 3
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { display: false }
+            // 3. Demografía
+            const ctx3 = document.getElementById('demographicChart').getContext('2d');
+            new Chart(ctx3, {
+                type: 'pie',
+                data: {
+                    labels: ['👩 Mujeres (66%)', '👨 Hombres (34%)'],
+                    datasets: [{
+                        data: [66, 34],
+                        backgroundColor: ['#ec4899', colors.info],
+                        borderWidth: 4,
+                        borderColor: '#fff'
+                    }]
                 },
-                scales: { 
-                    r: { 
-                        beginAtZero: true, 
-                        max: 100,
-                        pointLabels: { font: { size: 14 }}
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'bottom', labels: { padding: 20 }}
                     }
                 }
-            }
-        });
+            });
 
-        // Gráfico 5: ROI Comparativo
-        const ctx5 = document.getElementById('roiComparativo').getContext('2d');
-        new Chart(ctx5, {
-            type: 'bar',
-            data: {
-                labels: ['Google Ads', 'Meta Ads', 'Total General'],
-                datasets: [{
-                    label: 'ROI (%)',
-                    data: [1073, 418, 590],
-                    backgroundColor: ['#059669', '#DC2626', '#7C3AED'],
-                    borderRadius: 10,
-                    borderWidth: 2,
-                    borderColor: ['#047857', '#B91C1C', '#6D28D9']
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { display: false }
+            // 4. ROI por canal
+            const ctx4 = document.getElementById('roiChart').getContext('2d');
+            new Chart(ctx4, {
+                type: 'bar',
+                data: {
+                    labels: ['Google Ads', 'Meta Ads', 'Total'],
+                    datasets: [{
+                        label: 'ROI (%)',
+                        data: [1073, 418, 582],
+                        backgroundColor: [colors.google, colors.whatsapp, colors.secondary],
+                        borderRadius: 10
+                    }]
                 },
-                scales: {
-                    y: { 
-                        beginAtZero: true,
-                        title: { 
-                            display: true, 
-                            text: 'ROI (%)',
-                            font: { size: 14 }
-                        }
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: { legend: { display: false }},
+                    scales: {
+                        y: { title: { display: true, text: 'ROI (%)' }}
                     }
                 }
-            }
-        });
+            });
 
-        // Gráfico 6: Proyección de Crecimiento
-        const ctx6 = document.getElementById('proyeccionCrecimiento').getContext('2d');
-        new Chart(ctx6, {
-            type: 'line',
-            data: {
-                labels: ['Mes 1 (Actual)', 'Mes 2 (Proyectado)', 'Mes 3 (Proyectado)'],
-                datasets: [{
-                    label: 'Conversaciones Totales',
-                    data: [835, 1150, 1375],
-                    borderColor: '#3B82F6',
-                    backgroundColor: 'rgba(59, 130, 246, 0.1)',
-                    tension: 0.4,
-                    fill: true,
-                    pointRadius: 8,
-                    pointBackgroundColor: '#3B82F6',
-                    borderWidth: 3
-                }, {
-                    label: 'ROI (%)',
-                    data: [590, 672, 714],
-                    borderColor: '#10B981',
-                    backgroundColor: 'rgba(16, 185, 129, 0.1)',
-                    tension: 0.4,
-                    fill: true,
-                    yAxisID: 'y1',
-                    pointRadius: 8,
-                    pointBackgroundColor: '#10B981',
-                    borderWidth: 3
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { 
-                        position: 'top',
-                        labels: { font: { size: 14 }}
-                    }
+            // 5. Proyección de crecimiento
+            const ctx5 = document.getElementById('projectionChart').getContext('2d');
+            new Chart(ctx5, {
+                type: 'line',
+                data: {
+                    labels: ['Mes 1 (Actual)', 'Mes 2 (Proyectado)', 'Mes 3 (Proyectado)'],
+                    datasets: [{
+                        label: 'Conversaciones Totales',
+                        data: [835, 1170, 1400],
+                        borderColor: colors.primary,
+                        backgroundColor: colors.primary + '20',
+                        tension: 0.4,
+                        fill: true,
+                        pointRadius: 8
+                    }, {
+                        label: 'ROI (%)',
+                        data: [582, 657, 700],
+                        borderColor: colors.success,
+                        backgroundColor: colors.success + '20',
+                        tension: 0.4,
+                        fill: true,
+                        yAxisID: 'y1',
+                        pointRadius: 8
+                    }]
                 },
-                scales: {
-                    y: { 
-                        title: { 
-                            display: true, 
-                            text: 'Conversiones',
-                            font: { size: 14 }
-                        }
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'top' }
                     },
-                    y1: { 
-                        type: 'linear', 
-                        display: true, 
-                        position: 'right',
-                        title: { 
-                            display: true, 
-                            text: 'ROI (%)',
-                            font: { size: 14 }
-                        },
-                        grid: { drawOnChartArea: false }
+                    scales: {
+                        y: { title: { display: true, text: 'Conversaciones' }},
+                        y1: { type: 'linear', display: true, position: 'right', title: { display: true, text: 'ROI (%)' }}
                     }
                 }
-            }
+            });
         });
-
-    });
-</script>
+    </script>
+</body>
+</html>
